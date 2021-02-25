@@ -1,0 +1,25 @@
+<% if current_user_admin? %>
+    <h2>Add Genre:</h2>
+    <%= form_with(model: @genre, local:true) do |f| %>
+        <%= render 'shared/errors', object: @genre %>
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true %>
+        <%= f.submit %>
+    <% end %>
+<% end %>
+
+<h2>All Genres:</h2>
+<div>
+<p>
+    <% @genres.each do |genre| %>
+        <h4><%= link_to genre.name, genre %></h4>
+        <% if current_user_admin? %>
+            <section class = 'admin'>
+                <%= link_to "Edit genre", edit_genre_path(genre), class:'button' %>
+                <%= link_to "Delete genre", genre_path(genre), class:'button', method: :delete,
+                                        data: { confirm: 'Are you sure? '} %>
+            </section>
+        <% end %>
+    <% end %>
+</p>
+</div>

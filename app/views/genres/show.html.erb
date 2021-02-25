@@ -1,0 +1,28 @@
+<h1><%= @genre.name %> movies</h1> 
+
+<% @movies.each do |movie| %>
+    <section class = "movie">
+        <div class = "image">
+            <%= image_tag movie.image_file_name %>
+        </div>
+        <div class = "summary">
+            <h2>
+                <%= link_to movie.title, movie %>
+            </h2> 
+            <h3>
+                <%= total_gross(movie) %>
+            </h3>
+            <p>
+                <%= short_description(movie) %>
+            </p>
+            
+            <%= display_stars_for_movie(movie) %>
+            <%= display_review_count_for_movie(movie) %>
+
+        </div>
+    </section>
+    <% end %>
+
+
+  <%= link_to "View All Genres", genres_path, class:'button' %>
+
