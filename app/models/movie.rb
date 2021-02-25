@@ -9,7 +9,7 @@ class Movie < ApplicationRecord
     has_many :movie_genre_links
     has_many :genres, through: :movie_genre_links
 
-    validates :title, :released_on, :duration, presence: true, uniqueness: true
+    validates :title, :released_on, presence: true, uniqueness: true
 
     validates :description, length: { minimum: 25 }
 
