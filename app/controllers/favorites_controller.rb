@@ -18,7 +18,7 @@ class FavoritesController < ApplicationController
 private
 
 def find_movie
-    @movie = Movie.find(params[:id])
+    @movie = Movie.find(params[:movie_id])
 end
 
 
