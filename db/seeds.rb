@@ -199,8 +199,7 @@ movie.reviews.create!(user_id: 2, stars: 3, comment: "Spilled my popcorn!")
   ["Wonder Woman", "wonder-woman.png"]
 ].each do | movie_title, file_name |
   movie = Movie.find_by!(title: movie_title)
-  
-    file = File.open(Rails.root.join("app/assets/images/#{file_name}"))
+  file = File.open(Rails.root.join("app/assets/images/#{file_name}"))
   if movie.present? && file.present?
     movie.main_image.attach(io: file, filename: file_name)
   end
