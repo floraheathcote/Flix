@@ -25,7 +25,7 @@
 <%= f.text_field :duration %>
 
 <%= f.label :main_image %>
-<%= f.file_field :main_image, direct_upload: true %>
+<%= f.file_field :main_image, direct_upload: true, multiple: false %>
 
 <div class = "checkboxes">
     <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) %>
